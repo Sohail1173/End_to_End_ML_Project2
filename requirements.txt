@@ -1,4 +1,11 @@
 numpy
 pandas
+bentoml
+joblib
+tqdm
+pip-chill
+wincertstore
+torchvision
 
-# -e .
+
+-e .
