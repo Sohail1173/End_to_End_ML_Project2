@@ -26,5 +26,5 @@ version='0.0.1',
 author='suhail',
 author_email='mdsohailahmed711@gmail.com',
 packages=find_packages(),
-install_requires=get_requirements('requirements.txt')
+install_requires=get_requirements('requirements_dev.txt')
 )
