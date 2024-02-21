@@ -1,5 +1,5 @@
 import sys
-from Xray.components.data_ingestion import DataIngestionn
+from Xray.components.data_ingestion import DataIngestion
 from Xray.entity.artifact_entity import DataIngestionArtifact
 from Xray.entity.config_entity import DataIngestionConfig
 from Xray.exception import XrayException
@@ -11,8 +11,8 @@ class TrainPipeline:
 
         self.data_ingestion_config=DataIngestionConfig()
 
-        def start_data_ingestion(self) -> DataIngestionArtifact:
-            logging.info("Entered the start_data_ingestion method of TrainPipeline class")
+    def start_data_ingestion(self) -> DataIngestionArtifact:
+        logging.info("Entered the start_data_ingestion method of TrainPipeline class")
         try:
 
             logging.info("Getting the data from s3 bucket")

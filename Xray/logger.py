@@ -2,16 +2,17 @@ import logging
 import os
 
 from Xray.constant.training_pipeline import TIMESTAMP
-from datetime import datetime
 
-LOG_FILE=f"{TIMESTAMP}.log"
-logs_path=os.path.join(os.getcwd(),"logs",LOG_FILE)
+LOG_FILE: str = f"{TIMESTAMP}.log"
 
-os.makedirs(logs_path,exist_ok=True)
+logs_path = os.path.join(os.getcwd(), "logs", TIMESTAMP)
 
-LOG_FILE_PATH=os.path.join(logs_path,LOG_FILE)
+os.makedirs(logs_path, exist_ok=True)
+
+LOG_FILE_PATH = os.path.join(logs_path, LOG_FILE)
 
 logging.basicConfig(
     filename=LOG_FILE_PATH,
-    format="[%(asctime)s] %(name)s-%(levelname)s-%(message)s",level=logging.INFO,
+    format="[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s",
+    level=logging.INFO,
 )

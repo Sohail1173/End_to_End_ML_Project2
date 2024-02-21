@@ -2,15 +2,15 @@ import sys
 
 from Xray.cloud_storage.s3_operation import S3operation
 from Xray.entity.artifact_entity import DataIngestionArtifact
-from Xray.entity.config_entity import DataInfgestionConfig
+from Xray.entity.config_entity import DataIngestionConfig
 from Xray.exception import XrayException
 from Xray.logger import logging
 
 
 
 
-class DataIngestionn:
-    def __init__(self,data_ingestion_config:DataInfgestionConfig):
+class DataIngestion:
+    def __init__(self,data_ingestion_config:DataIngestionConfig):
         self.data_ingestion_config=data_ingestion_config
         self.s3=S3operation()
     def get_data_from_s3(self):
@@ -19,7 +19,7 @@ class DataIngestionn:
             self.s3.sync_folder_to_s3(
                 folder=self.data_ingestion_config.data_path,
                 bucket_name=self.data_ingestion_config.bucket_name,
-                bucket_folder_name=self.data_ingestion_config.s3_data_folder,
+                bucket_folder_name=self.data_ingestion_config.S3_data_folder,
             )
 
             logging.info("Exited the get_data_from_s3 method od data ingestion class")
@@ -50,7 +50,7 @@ class DataIngestionn:
             raise XrayException(e, sys)
         
 if __name__ == "__main__":
-    train_pipeline=TrainPipeline()
+    train_pipeline=DataIngestion()
     train_pipeline.start_data_ingestion()
 
 
