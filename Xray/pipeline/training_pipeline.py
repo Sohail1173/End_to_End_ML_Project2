@@ -1,15 +1,18 @@
 import sys
 from Xray.components.data_ingestion import DataIngestion
-from Xray.entity.artifact_entity import DataIngestionArtifact
-from Xray.entity.config_entity import DataIngestionConfig
 from Xray.exception import XrayException
 from Xray.logger import logging
+from Xray.entity.artifact_entity import DataIngestionArtifact
+  
+
+from Xray.entity.config_entity import DataIngestionConfig
+
 
 
 class TrainPipeline:
-    def __init__(self):
 
-        self.data_ingestion_config=DataIngestionConfig()
+    def __init__(self):
+        self.data_ingestion_config = DataIngestionConfig()
 
     def start_data_ingestion(self) -> DataIngestionArtifact:
         logging.info("Entered the start_data_ingestion method of TrainPipeline class")
@@ -33,7 +36,19 @@ class TrainPipeline:
 
         except Exception as e:
             raise XrayException(e, sys)
-if __name__ == "__main__":
-    train_pipeline=TrainPipeline()
-    train_pipeline.start_data_ingestion()
+        
+
+
+    def run_pipeline(self) -> None:
+
+        logging.info("Entered the run_pipeline method of TrainPipeline class")
+
+        try:
+            data_ingestion_artifact: DataIngestionArtifact = self.start_data_ingestion()
+
+            logging.info("Exited the run_pipeline method of TrainPipeline class")
+
+        except Exception as e:
+            raise XrayException(e, sys)
+
 
